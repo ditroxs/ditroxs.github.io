@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+      window.$ = window.jQuery = require('jquery');
+    </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Collapsible sidebar using Bootstrap 4</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <style>
+    a {
+      cursor: hand;
+    }
+    .loggedIcon {
+      opacity:0.9;
+      width:64px;
+      border-radius: 100%;
+    }
+    .notLogged{
+      -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+      filter: grayscale(100%);
+    }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Steam Key Claimer</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+                <p>Logged as <span id="username"></span></p>
+                <li>
+                    <a id="homeSubmenu" aria-expanded="false" class="dropdown-toggle">Steam Keys</a>
+                </li>
+                <li>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">SocialNetworks</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a class="linkSite" data-url="https://www.facebook.com/" >Facebook</a>
+                        </li>
+                        <li>
+                            <a class="linkSite" data-url="https://twitter.com/" >Twitter</a>
+                        </li>
+                        <li>
+                            <a class="linkSite" data-url="https://www.youtube.com/" >YouTube</a>
+                        </li>
+                        <li>
+                            <a class="linkSite" data-url="https://www.twitch.tv/" >Twitch</a>
+                        </li>
+                        <li>
+                            <a class="linkSite" data-url="https://discordapp.com/login" >Discord</a>
+                        </li>
+                        <li>
+                            <a class="linkSite" data-url="https://store.steampowered.com/" >Steam</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a id="toggleSettings" >Settings</a>
+                </li>
+            </ul>
+
+            <ul class="list-unstyled CTAs">
+                <li>
+                    <a  class="download">I might put</a>
+                </li>
+                <li>
+                    <a  class="article">Adverts here</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <input type="text" id="siteName" value="" class="btn btn-info" />
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" >-</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" >[ ]</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" >X</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div id="home">
+              <div class="form-control">
+                <h2>Your games</h2>
+                <table id="yourGames" style="width:100%;">
+                  <tr>
+                    <th>Game name</th>
+                    <th>Steam key</th>
+                    <th>Location</th>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div id="browser" style="height:60%;display:none;">
+            </div>
+            <div id="settings" style="display:none;">
+              <div class="form-control">
+                <h2>Currently logged in</h2>
+                <div class="row" align="center">
+                  <div class="col-sm-4" id="facebookLogged">
+                    <img class="loggedIcon notLogged" src="img/facebook.png" /><br />
+                    Facebook
+                  </div>
+                  <div class="col-sm-4" id="twitterLogged">
+                    <img class="loggedIcon notLogged" src="img/twitter.png" /><br />
+                    Twitter
+                  </div>
+                  <div class="col-sm-4" id="youtubeLogged">
+                    <img class="loggedIcon notLogged" src="img/youtube.png" /><br />
+                    Youtube
+                  </div>
+                  <div class="col-sm-4" id="twitchLogged">
+                    <img class="loggedIcon notLogged" src="img/twitch.png" /><br />
+                    Twitch
+                  </div>
+                  <div class="col-sm-4" id="discordLogged">
+                    <img class="loggedIcon notLogged" src="img/discord.png" /><br />
+                    Discord
+                  </div>
+                  <div class="col-sm-4" id="steamLogged">
+                    <img class="loggedIcon notLogged" src="img/steam.png" /><br />
+                    Steam
+                  </div>
+                </div>
+              </div>
+              <hr />
+              <div class="form-control">
+                <h2>Settings</h2>
+                <table style="width:100%;">
+                  <tr>
+                    <th>Option</th>
+                    <th>Value</th>
+                  </tr>
+                  <tr>
+                    <td>Name</td>
+                    <td><input type="text" value=""/></td>
+                  </tr>
+                  <tr>
+                    <td>Name</td>
+                    <td><input type="checkbox"/></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+    </div>
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+</body>
+
+  <script>
+    try{
+      const {ipcRenderer}=require('electron');
+      let website;
+      let webContents;
+      ipcRenderer.on('addGame', (event, obj) => {
+        var table = document.querySelector("#yourGames");
+        var newTr = document.createElement("tr");
+        table.appendChild(newTr);
+        var newTd = document.createElement("td");
+        newTd.textContent=obj.name;
+        newTr.appendChild(newTd);
+
+        newTd = document.createElement("td");
+        newTd.textContent=obj.key;
+        newTr.appendChild(newTd);
+
+        newTd = document.createElement("td");
+        newTd.textContent=obj.location
+        newTr.appendChild(newTd);
+      });
+      function menuSwap(type,callback=null){
+        if($(type).is(":hidden")){
+          let containers = ["#home","#browser","#settings"];
+          for(let c=0;c<containers.length;c++){
+            $(containers[c]).hide();
+          }
+          $(type).show();
+          if(callback!=null){
+            callback();
+          }
+        }
+      }
+
+      function changeSite(url,need=true){
+        $("#siteName").val(url);
+        if(need){
+          website.loadURL(url);
+        }
+      }
+
+      $(document).ready(function() {
+        keyExtractor=document.createElement("webview");
+        keyExtractor.setAttribute("preload","script.js");
+        keyExtractor.setAttribute("useragent","Mozilla/5.0 (Linux; Android 7.0; SM-G930V Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.125 Mobile Safari/537.36");
+        keyExtractor.id="keyExtractor";
+        keyExtractor.style="position:absolute;top:0px;right:0px;width:100%;height:100%;";
+        keyExtractor.src="https://marvelousga.com/";
+        document.body.appendChild(keyExtractor);
+
+        website = document.createElement("webview");
+        website.setAttribute("useragent","Mozilla/5.0 (Linux; Android 7.0; SM-G930V Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.125 Mobile Safari/537.36");
+        website.id="website";
+        website.src="https://www.github.com/";
+        website.style="width:100%; height:100%";
+
+        website.addEventListener('did-start-loading', function(){
+          webContents = website.getWebContents();
+          $("#siteName").val(website.src);
+            webContents.on('will-navigate', (event, url) => {
+            changeSite(url,false);
+          });
+          webContents.on('new-window', (event, url) => {
+            event.preventDefault()
+            const win = new require("electron").BrowserWindow({show: false})
+            win.once('ready-to-show', () => win.show())
+            win.loadURL(url)
+            event.newGuest = win
+          });
+          $('#siteName').bind("enterKey",function(e){
+            changeSite($('#siteName').val());
+          });
+          $('#siteName').keyup(function(e){
+              if(e.keyCode == 13)
+              {
+                  $(this).trigger("enterKey");
+              }
+          });
+        });
+        $(".linkSite").each(function() {
+          $(this).click(function() {
+            let url=$(this).data("url");
+            menuSwap("#browser",function(){
+              setTimeout(function(){
+                changeSite(url);
+              },1000);
+            });
+            changeSite(url);
+          });
+        });
+        document.querySelector("#browser").appendChild(website);
+        $('#toggleSettings').click(function(){
+          menuSwap("#settings");
+        });
+        $('#homeSubmenu').click(function(){
+          menuSwap("#home");
+        });
+
+      });
+    }catch(e){
+      console.log(e);
+    }
+  </script>
+
+</html>

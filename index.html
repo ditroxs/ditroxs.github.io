@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>DitroX Streaming Hub</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-96698742-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-96698742-3');
+    </script>
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <style>
+    a {
+      cursor: hand;
+    }
+    .loggedIcon {
+      opacity:0.9;
+      width:64px;
+      border-radius: 100%;
+    }
+    .notLogged{
+      -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+      filter: grayscale(100%);
+    }
+    </style>
+
+    <script>
+
+    function subMenuChanger(to){
+      let containers = ["#home","#aht","#steamkeyclaimer"];
+      for(var c=0;c<containers.length;c++){
+        document.querySelector(containers[c]).style.display="none";
+      }
+      document.querySelector(to).style.display="";
+      document.querySelector("#subtitle").textContent=document.querySelector(to).getAttribute("data-title");
+    }
+
+    function init(){
+    }
+
+    document.onreadystatechange = function () {
+      var state = document.readyState;
+      if (state == 'interactive') {
+          init();
+      }
+    }
+    </script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>DitroX</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+                <li>
+                    <a id="homeSubmenu" aria-expanded="false" class="dropdown-toggle" onclick="subMenuChanger('#home')">Home</a>
+                </li>
+                <li>
+                    <a id="ahtSubmenu" onclick="subMenuChanger('#aht')">Auto-Hack-Tool</a>
+                </li>
+                <li>
+                    <a id="steamkeyclaimerSubmenu" onclick="subMenuChanger('#steamkeyclaimer')">Steam Key Claimer</a>
+                </li>
+            </ul>
+
+            <ul class="list-unstyled CTAs">
+              <li>
+                <a href="https://discord.gg/PGcJfpH" target="_blank" class="tw-interactive tw-link" data-test-selector="link_url_test_selector">
+                  Join Discord Server
+                </a>
+              </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid" id="subtitle">
+                  DitroX Streaming Hub
+                </div>
+            </nav>
+            <div id="home" data-title="DitroX Streaming Hub" class="form-control" style="margin-left:-20px;">
+              <table id="streamings" style="width:100%">
+                <tr>
+                  <td>
+                    <iframe class="stream" data-max="-1" data-user="helmitevo" src="https://player.twitch.tv/?channel=helmitevo&muted" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620" kwframeid="1"></iframe><a href="https://www.twitch.tv/helmitevo?tt_content=text_link&amp;tt_medium=live_embed" style="padding:2px 0px 4px; display:block; width:345px; font-weight:normal; font-size:10px; text-decoration:underline;">Watch live video from HelmitEvo on www.twitch.tv</a>
+                  </td>
+                  <td>
+                  <!--  <iframe class="stream" data-max="75" data-user="tsmthomy" src="https://player.twitch.tv/?channel=tsmthomy&muted" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620" kwframeid="1"></iframe><a href="https://www.twitch.tv/helmitevo?tt_content=text_link&amp;tt_medium=live_embed" style="padding:2px 0px 4px; display:block; width:345px; font-weight:normal; font-size:10px; text-decoration:underline;">Watch live video from HelmitEvo on www.twitch.tv</a>-->
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div id="aht" data-title="Auto-Hack-Tool" class="form-control" style="display:none;">
+             <h1>Installation: you will need to download and install the next things:</h1>
+             <hr />
+             <center>
+               <h2>
+                 <a href='https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo' target="_blank">
+                   <span>Tampermonkey</span> Chrome extension (click here to open extension download site)</a>
+               </h2>
+               <br />
+               <h2>
+                 <a href='https://adsbypasser.github.io/releases/adsbypasser.full.es7.user.js'>
+                   <span>Adsbypasser</span> once TamperMonkey is installed click here</a>
+               </h2>
+               <br />
+               <h2>
+                 <a href='aht/AHT.user.js'>  <span>AHT User Script</span> once everything is installed click here</a>
+               </h2>
+             </center>
+             <hr />
+
+           <h1 class="responsive-headline" style="text-decoration:none;font-family: 'Baloo Paaji';color:#6E9090; font-size:42px;">How to use it</h1>
+           <h3 style="text-align:left">
+               <span>Surf to</span> <a href='https://dc4u.eu/' target="_blank">https://dc4u.eu/</a><br />
+             <img src="https://i.servimg.com/u/f13/15/14/68/24/ss111.png" /><br />
+               <span>Select your game</span><br />
+               <img src="https://i.servimg.com/u/f13/15/14/68/24/ss211.png" /><br />
+             <span>Fill the form and press "Save Data and Start AHT"</span><br />
+               <img src="https://i.servimg.com/u/f13/15/14/68/24/ss311.png" /><br />
+             <span>AHT will we working after that</span><br />
+           </h3>
+            </div>
+            <div id="steamkeyclaimer" data-title="Steam Key Claimer" class="form-control" style="display:none;">
+              <h1>Coming soon:</h1>
+              <hr />
+                <h2>
+                  This software will be a giveaway key extractor of steam games, and maybe other plataforms in a nearly future.<br />
+                  If you already know about Steam games giveaways you will know those sites ask you to follow a lot of things like:
+                  <ul>
+                    <li>Steam games</li>
+                    <li>Steam curators</li>
+                    <li>Facebook pages</li>
+                    <li>Twitter accounts</li>
+                    <li>Twitch accounts</li>
+                    <li>Enter sites</li>
+                    <li>etc</li>
+                  </ul>
+                  Here we will automate all of that following so you just will need to log into your social networks and you will have a list of keys of steam games.<br />
+                  If you are interested in the idea join the discord server and wait around until it is released
+                </h2>
+              <hr />
+            </div>
+          </div>
+    </div>
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <script>
+      $(document).ready(function() {
+        $(".stream").each(function(){
+          var streamElement = $(this);
+          var user = streamElement.data('user');
+          var top = streamElement.data("max");
+          $.ajax({
+            url: "https://api.twitch.tv/kraken/streams/"+user+"?client_id=loz5fdb1o095xtdhb178rhgg2pr3ej",
+            cache: false,
+            success: function(object){
+              if(object.hasOwnProperty("stream")&&object.stream!==null){
+                if(top!==-1 && object.stream.viewers>top){
+                  streamElement.remove();
+                }
+              } else {
+                if(top!==-1){
+                  streamElement.remove();
+                }
+              }
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
