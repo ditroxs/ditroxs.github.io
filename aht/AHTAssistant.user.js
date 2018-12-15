@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         AHT Recaptcha Assitant
 // @namespace    http://tampermonkey.net/
-// @updateURL    https://ditroxs.github.io/aht/AHTAssitant.user.js
-// @downloadURL  https://ditroxs.github.io/aht/AHTAssitant.user.js
+// @updateURL    https://ditroxs.github.io/aht/AHTAssistant.user.js
+// @downloadURL  https://ditroxs.github.io/aht/AHTAssistant.user.js
 // @version      0.1.0
 // @description  try to take over the world!
 // @author       DitroXS
