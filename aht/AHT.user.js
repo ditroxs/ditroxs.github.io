@@ -3,7 +3,7 @@
 // @namespace    http://tampermonkey.net/
 // @updateURL    https://ditroxs.github.io/aht/AHT.user.js
 // @downloadURL  https://ditroxs.github.io/aht/AHT.user.js
-// @version      0.6.10
+// @version      0.7.0
 // @description  try to take over the world!
 // @author       DitroXS
 // @match        http://*/*
