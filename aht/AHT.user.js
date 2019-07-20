@@ -132,7 +132,7 @@
         document.body.appendChild(i);
       });
     } else if(document.readyState === "complete"){
-      GM_getTab(function (o) {
+      /*GM_getTab(function (o) {
         tabData=o;
         if(!tabData.speaky){
           if(document.domain.includes("speaky")){
@@ -151,7 +151,7 @@
             }
           }
         }
-      });
+      });*/
     }
   }
   function beforeLoad(){
